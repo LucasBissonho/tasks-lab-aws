@@ -46,6 +46,14 @@ class User(Entity):
     def set_created_at(self, created_at: datetime):
         self.__created_at = created_at
 
+    def to_dict(self) -> dict:
+        return {
+            "username": self.__username,
+            "email": self.__email,
+            "created_at": str(self.__created_at),
+            "inner_id": self.inner_id
+        }
+
     @classmethod
     def reconstruct(cls, username: str, password_hash: str, email: str, created_at: datetime, inner_id: str):
         user = cls(username, email, inner_id=inner_id)
