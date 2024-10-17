@@ -6,7 +6,7 @@ class MemoryTaskRepository(TaskRepository):
     __sole_instance = None
 
     def __init__(self):
-        self.tasks = {}
+        self.tasks: dict[str, Task] = {}
 
     @staticmethod
     def get_sole_instance():
@@ -20,8 +20,8 @@ class MemoryTaskRepository(TaskRepository):
     async def get_task_by_id(self, task_id: str) -> Task:
         return self.tasks.get(task_id)
 
-    async def get_all_tasks_by_user_id(self, client_id: str) -> list[Task]:
-        return [task for task in self.tasks.values() if task.client_id == client_id]
+    async def get_all_tasks_by_user_id(self, user_id: str) -> list[Task]:
+        return [task for task in self.tasks.values() if task.user_id == user_id]
 
     async def update_task(self, t: Task):
         try:

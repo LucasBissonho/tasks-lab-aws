@@ -16,7 +16,7 @@ routers = APIRouter()
 routers.tags = ["Users"]
 
 
-@routers.post("/users", status_code=201)
+@routers.post("/user", status_code=201)
 async def create_user(new_user: UserDTO, user_data: dict = Depends(validate_login)):
     user_repo = MemoryUserRepository.get_sole_instance()
     usecase = CreateUser(user_repo)

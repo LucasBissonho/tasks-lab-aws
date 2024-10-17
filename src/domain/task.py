@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from .entity import Entity
 
 
-class StatusEnum(Enum, str):
+class StatusEnum(str, Enum):
     TODO = 'todo'
     IN_PROGRESS = 'in_progress'
     DONE = 'done'
