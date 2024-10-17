@@ -13,7 +13,7 @@ class TaskRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    async def get_all_tasks_by_client_id(self, client_id: str) -> list[Task]:
+    async def get_all_tasks_by_user_id(self, client_id: str) -> list[Task]:
         raise NotImplementedError
 
     @abstractmethod

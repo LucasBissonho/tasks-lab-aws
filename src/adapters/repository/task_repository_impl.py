@@ -20,7 +20,7 @@ class MemoryTaskRepository(TaskRepository):
     async def get_task_by_id(self, task_id: str) -> Task:
         return self.tasks.get(task_id)
 
-    async def get_all_tasks_by_client_id(self, client_id: str) -> list[Task]:
+    async def get_all_tasks_by_user_id(self, client_id: str) -> list[Task]:
         return [task for task in self.tasks.values() if task.client_id == client_id]
 
     async def update_task(self, t: Task):
