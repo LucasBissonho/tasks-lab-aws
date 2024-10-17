@@ -54,3 +54,13 @@ class Task(Entity):
 
     def set_user_id(self, user_id: str):
         self.__user_id = user_id
+
+    def to_dict(self) -> dict:
+        return {
+            'inner_id': self.inner_id,
+            'title': self.title,
+            'description': self.description,
+            'status': self.status.value,
+            'user_id': self.user_id,
+            'created_at': self.created_at.isoformat()
+        }
