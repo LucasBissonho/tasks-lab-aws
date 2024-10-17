@@ -55,9 +55,9 @@ class User(Entity):
         }
 
     @classmethod
-    def reconstruct(cls, username: str, password_hash: str, email: str, created_at: datetime, inner_id: str):
+    def reconstruct(cls, username: str, password_hash: str, email: str, created_at: str, inner_id: str):
         user = cls(username, email, inner_id=inner_id)
         user.set_password_hash(password_hash)
-        user.set_created_at(created_at)
+        user.set_created_at(datetime.fromisoformat(created_at))
 
         return user

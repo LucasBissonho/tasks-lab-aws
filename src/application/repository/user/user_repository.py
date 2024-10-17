@@ -12,6 +12,10 @@ class UserRepository(ABC):
     async def get_user_by_username(self, username: str) -> User:
         raise NotImplementedError
 
+    @abstractmethod
+    async def get_user_by_id(self, user_id: str) -> User:
+        raise NotImplementedError
+
     # @abstractmethod
     # async def get_user_by_email(self, email: str) -> User:
     #     raise NotImplementedError
