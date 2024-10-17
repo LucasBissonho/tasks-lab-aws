@@ -1,10 +1,22 @@
-from domain.user import User
+from ...domain.user import User
 from ...application.repository.user.user_repository import UserRepository
 
 
 class MemoryUserRepository(UserRepository):
+    __sole_instance = None
+
     def __init__(self):
         self.users = {}
+
+    # def __new__(cls):
+    #     if cls.__sole_instance is None:
+    #         cls.__sole_instance = super(MemoryUserRepository, cls).__new__(cls)
+    #     return cls.__sole_instance
+    @staticmethod
+    def get_sole_instance():
+        if MemoryUserRepository.__sole_instance is None:
+            MemoryUserRepository.__sole_instance = MemoryUserRepository()
+        return MemoryUserRepository.__sole_instance
 
     async def create_user(self, u: User):
         self.users[u.inner_id] = u

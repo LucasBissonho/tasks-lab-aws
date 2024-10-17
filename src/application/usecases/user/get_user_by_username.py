@@ -9,6 +9,6 @@ class GetUserByUsername:
         user = await self.user_repository.get_user_by_username(username)
 
         if not user:
-            raise ValueError(f"User with username {username} not found")
+            raise ValueError(f"User with username '{username}' not found")
 
         return user.to_dict()
