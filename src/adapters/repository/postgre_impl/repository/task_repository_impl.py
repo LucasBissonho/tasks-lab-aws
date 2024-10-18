@@ -49,7 +49,7 @@ class PostgreTaskRepository(TaskRepository):
                 description=db_task.description,
                 status=db_task.status,
                 user_id=db_task.user_id,
-                created_at=db_task.created_at
+                created_at=str(db_task.created_at)
             )
 
     async def get_all_tasks_by_user_id(self, client_id: str) -> list[Task]:
@@ -64,7 +64,7 @@ class PostgreTaskRepository(TaskRepository):
                 description=t.description,
                 status=t.status,
                 user_id=t.user_id,
-                created_at=t.created_at
+                created_at=str(t.created_at)
             ) for t in db_tasks]
 
     async def update_task(self, t: Task):

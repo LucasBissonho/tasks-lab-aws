@@ -13,7 +13,6 @@ class PostgreUserRepository(UserRepository):
     def get_sole_instance():
         if not PostgreUserRepository.__sole_instance:
             session = PostgreConnection.get_session()
-            print('session', session)
             PostgreUserRepository.__sole_instance = PostgreUserRepository(
                 session)
         return PostgreUserRepository.__sole_instance
@@ -67,7 +66,7 @@ class PostgreUserRepository(UserRepository):
             username=db_user.username,
             password_hash=db_user.password_hash,
             email=db_user.email,
-            created_at=db_user.created_at
+            created_at=str(db_user.created_at)
         )
 
     async def get_all_users(self) -> list[User]:
@@ -81,7 +80,7 @@ class PostgreUserRepository(UserRepository):
                 username=u.username,
                 password_hash=u.password_hash,
                 email=u.email,
-                created_at=u.created_at
+                created_at=str(u.created_at)
             ) for u in db_users]
 
     async def update_user(self, u: User):
