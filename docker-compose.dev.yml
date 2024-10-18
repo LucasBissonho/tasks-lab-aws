@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  database:
+    container_name: aws_lab_database
+    image: postgres:alpine
+    restart: always
+    env_file:
+      - ./.env.dev
+    ports:
+      - 127.0.0.1:5432:5432 # db
+    volumes:
+      - ./database:/var/lib/postgresql/data

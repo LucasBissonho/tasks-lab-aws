@@ -1,4 +1,4 @@
-from ....adapters.repository.user_repository_impl import MemoryUserRepository
+from ....adapters.repository.memory_impl.user_repository_impl import MemoryUserRepository
 from ....application.usecases.user.create_user import CreateUser
 from ...midlewares.validate_login import validate_login
 

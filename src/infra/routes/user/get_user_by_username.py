@@ -1,4 +1,4 @@
-from ....adapters.repository.user_repository_impl import MemoryUserRepository
+from ....adapters.repository.memory_impl.user_repository_impl import MemoryUserRepository
 from ....application.usecases.user.get_user_by_username import GetUserByUsername
 
 from fastapi import APIRouter, HTTPException

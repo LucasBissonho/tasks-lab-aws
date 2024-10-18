@@ -1,5 +1,5 @@
 
-from ...adapters.repository.user_repository_impl import MemoryUserRepository
+from ...adapters.repository.memory_impl.user_repository_impl import MemoryUserRepository
 from ...application.usecases.auth.validate_user_login import ValidateUserLogin
 
 from fastapi import HTTPException, Depends

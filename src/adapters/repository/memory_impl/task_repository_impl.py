@@ -1,5 +1,5 @@
-from ...application.repository.task.task_repository import TaskRepository
-from ...domain.task import Task
+from ....application.repository.task.task_repository import TaskRepository
+from ....domain.task import Task
 
 
 class MemoryTaskRepository(TaskRepository):

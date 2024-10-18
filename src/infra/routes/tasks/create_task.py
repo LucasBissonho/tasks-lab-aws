@@ -1,5 +1,5 @@
 from ...midlewares.validate_login import validate_login
-from ....adapters.repository.task_repository_impl import MemoryTaskRepository
+from ....adapters.repository.memory_impl.task_repository_impl import MemoryTaskRepository
 from ....application.usecases.task.create_task import CreateTask
 
 from fastapi import APIRouter, Depends

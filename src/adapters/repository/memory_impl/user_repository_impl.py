@@ -1,5 +1,5 @@
-from ...domain.user import User
-from ...application.repository.user.user_repository import UserRepository
+from ....domain.user import User
+from ....application.repository.user.user_repository import UserRepository
 
 
 class MemoryUserRepository(UserRepository):
