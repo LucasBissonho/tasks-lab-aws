@@ -4,7 +4,6 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 import dotenv
 
-# DATABASE_URL = 'postgresql+asyncpg://tasks_user_root:123@localhost:5432/tasks_api'
 dotenv.load_dotenv()
 DATABASE_URL = os.getenv('DATABASE_URL')
 

@@ -15,7 +15,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 async def login_for_access_token(
     form_data: OAuth2PasswordRequestForm = Depends(),
 ):
-    user_repository = RepositoryFactory.get_sole_instance().get_user_memory_sole_instance()
+    user_repository = RepositoryFactory.get_sole_instance().get_user_postgre_sole_instance()
     auth_user = AuthenticateUser(data_repo=user_repository)
 
     try:
