@@ -1,4 +1,4 @@
-from ....adapters.repository.memory_impl.user_repository_impl import MemoryUserRepository
+from ....adapters.repository.repository_factory import RepositoryFactory
 from ....application.usecases.auth.auth_user import AuthenticateUser
 
 
@@ -15,7 +15,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 async def login_for_access_token(
     form_data: OAuth2PasswordRequestForm = Depends(),
 ):
-    user_repository = MemoryUserRepository.get_sole_instance()
+    user_repository = RepositoryFactory.get_sole_instance().get_user_memory_sole_instance()
     auth_user = AuthenticateUser(data_repo=user_repository)
 
     try:

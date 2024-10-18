@@ -1,4 +1,4 @@
-from ....adapters.repository.memory_impl.user_repository_impl import MemoryUserRepository
+from ....adapters.repository.repository_factory import RepositoryFactory
 from ....application.usecases.user.create_user import CreateUser
 from ...midlewares.validate_login import validate_login
 
@@ -18,7 +18,7 @@ routers.tags = ["Users"]
 
 @routers.post("/user", status_code=201)
 async def create_user(new_user: UserDTO, user_data: dict = Depends(validate_login)):
-    user_repo = MemoryUserRepository.get_sole_instance()
+    user_repo = RepositoryFactory.get_sole_instance().get_user_memory_sole_instance()
     usecase = CreateUser(user_repo)
 
     try:
