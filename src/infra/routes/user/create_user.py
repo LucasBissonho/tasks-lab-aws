@@ -17,7 +17,7 @@ routers.tags = ["Users"]
 
 
 @routers.post("/user", status_code=201)
-async def create_user(new_user: UserDTO):
+async def create_user(new_user: UserDTO, user_data: dict = Depends(validate_login)):
     user_repo = RepositoryFactory.get_sole_instance().get_user_postgre_sole_instance()
     usecase = CreateUser(user_repo)
 
