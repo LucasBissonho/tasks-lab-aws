@@ -17,7 +17,7 @@ class TaskDTO(BaseModel):
 
 @routers.post("/task", status_code=201)
 async def create_task(new_task: TaskDTO, user_data: dict = Depends(validate_login)):
-    task_repo = RepositoryFactory.get_sole_instance().get_task_memory_sole_instance()
+    task_repo = RepositoryFactory.get_sole_instance().get_task_postgre_sole_instance()
     usecase = CreateTask(task_repo)
 
     result = await usecase.execute(new_task.title, new_task.description, user_data['inner_id'])

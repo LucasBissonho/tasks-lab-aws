@@ -64,3 +64,10 @@ class Task(Entity):
             'user_id': self.user_id,
             'created_at': self.created_at.isoformat()
         }
+
+    @classmethod
+    def reconstruct(cls, inner_id: str, title: str, description: str, status: str, user_id: str, created_at: str):
+        task = cls(title, description, StatusEnum(status), user_id, inner_id)
+        task.__created_at = datetime.fromisoformat(created_at)
+
+        return task

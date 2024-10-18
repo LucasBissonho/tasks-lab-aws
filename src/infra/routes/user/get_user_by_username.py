@@ -17,7 +17,7 @@ routers.tags = ["Users"]
 
 @routers.get("/user/{username}", status_code=200)
 async def get_user_by_username(username: str):
-    user_repo = RepositoryFactory.get_sole_instance().get_user_memory_sole_instance()
+    user_repo = RepositoryFactory.get_sole_instance().get_user_postgre_sole_instance()
     usecase = GetUserByUsername(user_repo)
 
     try:
