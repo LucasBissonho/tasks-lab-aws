@@ -1,5 +1,5 @@
 from enum import Enum
-from datetime import datetime, timezone
+from datetime import datetime
 
 from .entity import Entity
 
@@ -21,7 +21,7 @@ class Task(Entity):
         self.set_description(description)
         self.set_status(status)
         self.set_user_id(user_id)
-        self.__created_at = datetime.now(timezone.utc)
+        self.__created_at = datetime.now()
 
     @property
     def title(self) -> str:

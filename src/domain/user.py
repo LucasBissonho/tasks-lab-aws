@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime
 
 from passlib.context import CryptContext
 
@@ -14,7 +14,7 @@ class User(Entity):
         self.__email = email
         if password:
             self.__password_hash = self.__create_password_hash(password)
-        self.__created_at = datetime.now(timezone.utc)
+        self.__created_at = datetime.now()
 
     @property
     def username(self) -> str:
