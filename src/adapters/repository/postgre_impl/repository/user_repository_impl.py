@@ -49,7 +49,7 @@ class PostgreUserRepository(UserRepository):
                 username=db_user.username,
                 password_hash=db_user.password_hash,
                 email=db_user.email,
-                created_at=db_user.created_at
+                created_at=str(db_user.created_at)
             )
 
     async def get_user_by_username(self, username: str) -> User:
